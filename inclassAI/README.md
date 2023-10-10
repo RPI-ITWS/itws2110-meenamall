@@ -89,6 +89,27 @@ Professional Photograph"
   margin-bottom: 10px;
 }"
 
+
+"with this information make a announcments section with this title and paragraph - Rensselaer Polytechnic Institute Plans to Deploy First IBM Quantum System One on a University Campus
+Today, it was announced that Rensselaer Polytechnic Institute will become the first university in the world to house an IBM Quantum System One. The IBM quantum computer, intended to be operational by January of 2024, will serve as the foundation of a new IBM Quantum Computational Center in partnership with Rensselaer Polytechnic Institute (RPI). By partnering, RPI’s vision is to greatly enhance the educational experiences and research capabilities of students and researchers at RPI and other institutions, propel the Capital Region into a top location for talent, and accelerate New York's growth as a technology epicenter."
+
+"with this information make a announcments section with this title and paragraph More Than 1,900 Degrees To Be Awarded at 217th Rensselaer Polytechnic Institute Commencement Ceremony
+Beginning at 9:30 a.m. on May 20, 2023, Rensselaer Polytechnic Institute will award a total of 1,988 degrees — 152 doctoral degrees, 390 master’s degrees, and 1,446 bachelor’s degrees — to 1,957 students, some of whom have earned multiple degrees. Approximately 1,500 students will attend the ceremony."
+ 
+"with this information make a announcments section with this title and paragraph Rensselaer Graduates Recognized for Resilience, Perseverance at 217th Commencement
+Rensselaer Polytechnic Institute President Martin A. Schmidt ’81 presided over the 217th Commencement Ceremony, his first as president. During the ceremony, which was held at the East Campus Athletic Village, Rensselaer awarded a total of 1,988 degrees — 152 doctoral degrees, 390 master’s degrees, and 1,446 bachelor’s degrees — to 1,957 students, some of whom earned multiple degrees. Approximately 1,500 students attended the ceremony."
+
+"i want each headings in announcments be linked"
+
+"link heading 1 to this: https://science.rpi.edu/information-technology-and-web-science/news/rensselaer-polytechnic-institute-plans-deploy-first-ibm"
+
+"link heading 2 to this: https://science.rpi.edu/information-technology-and-web-science/news/rensselaer-graduates-recognized-resilience-perseverance"
+
+"link heading 3 to this: https://science.rpi.edu/information-technology-and-web-science/news/more-1900-degrees-be-awarded-217th-rensselaer"
+
+
+
+
 "these three cards are different sizes, make them the same size: "
 
 "make another card with the header "A Degree focused in your interests" with this image address "
@@ -136,9 +157,11 @@ Professional Photograph"
   margin: 10px 0;
 }"
 
-
+"
 
 "make a donate section for my website - give me the CSS to this code with a similar layout to the website CSS"
+
+"make the learn more section be linked to this : https://securelb.imodules.com/s/1225/lg22/form.aspx?sid=1225&gid=1&pgid=6795&dids=255&bledit=1&sort=1"
 
 "why is my content header and p tag underlined and linked to a wrong link. "
 
