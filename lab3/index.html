@@ -41,7 +41,27 @@
             <button id="new-cat-button">Get New Cat</button> <!--Button for generating new cat image-->
         </div>
 
+
+        <div class="currencyconversions">
+            <button id="usdeurbutton">Convert USD to EUR</button>
+            <p class="usdtoeur">USD to EUR: </p>
+            
+            <button id="jpyusdbutton">Convert JPY to USD</button>
+            <p class="jpytousd">JPY to USD:</p>
+            
+            <button id="bgneurbutton">Convert BGN to EUR</button>
+            <p class="bgntoeur">BGN to EUR:</p>
+            
+            <button id="czkusdbutton">Convert CZK to USD</button>
+            <p class="czktousd">CZK to USD:</p>
+            
+            <button id="gbpusdbutton">Convert GBP to USD</button>
+            <p class="gbptousd">GBP to USD: </p>
+        </div>
+
     </div>
+
+
 
 <script>
 
@@ -50,6 +70,8 @@ const apiurl = "https://api.openweathermap.org/data/2.5/weather?lat=42.7284&lon=
 
 const catapikey = "live_jjkPyzpAhxQenIgZqKXtawWrpbBhLmxJBfrq1UJRdsHvIm8Tzlt9vbFvY8FP2duK"; //cat api key
 const catapiurl = "https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng"; //cat api url + key
+
+const frankfurterAPIUrl = "https://api.frankfurter.app/latest"; //currecy url
 
 const weatherIcon = document.querySelector(".weather-icon");  //get weather icon
 
@@ -110,6 +132,24 @@ function fetchRandomCat(){ //function for getting cat image
 newCatButton.addEventListener("click", fetchRandomCat); 
 
 fetchRandomCat(); //calls fetchRandomCat function
+
+
+
+
+async function fetchCurrencyConversion() {
+    const response = await fetch(frankfurterAPIUrl);
+    const data = await response.json();
+
+    document.querySelector(".usd-eur").innerHTML = `USD to EUR: ${data.rates.EUR}`;
+    document.querySelector(".jpy-usd").innerHTML = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
+    document.querySelector(".bgn-eur").innerHTML = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
+    document.querySelector(".czk-usd").innerHTML = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
+    document.querySelector(".gbp-usd").innerHTML = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
+}
+
+
+
+fetchCurrencyConversion(); //calls fetch currency conversion function
 
 </script>
 
