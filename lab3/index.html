@@ -152,49 +152,22 @@ newCatButton.addEventListener("click", fetchRandomCat);
 fetchRandomCat(); //calls fetchRandomCat function
 
 
+
 currencyConversionButton.addEventListener("click", async () => {
-    try {
-        const response = await fetch(frankfurterAPIUrl);
-        const data = await response.json();
-
-        const usdToEur = `USD to EUR: ${data.rates.EUR}`;
-        const jpyToUsd = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
-        const bgnToEur = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
-        const czkToUsd = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
-        const gbpToUsd = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
-
-        // Update the corresponding paragraphs in the results area
-        document.querySelector(".usdtoeur").textContent = usdToEur;
-        document.querySelector(".jpytousd").textContent = jpyToUsd;
-        document.querySelector(".bgntoeur").textContent = bgnToEur;
-        document.querySelector(".czktousd").textContent = czkToUsd;
-        document.querySelector(".gbptousd").textContent = gbpToUsd;
-
-        // Make the results area visible
-        currencyConversionResults.style.display = "block";
-    } catch (error) {
-        console.error("Error fetching currency conversion:", error);
-    }
-});
-
-fetchCurrencyConversion(); //calls fetch currency conversion function
-
-async function fetchCurrencyConversion() {
-    try {
-        const response = await fetch(frankfurterAPIUrl);
-        const data = await response.json();
-
-        document.querySelector(".usdtoeur").innerHTML = `USD to EUR: ${data.rates.EUR}`;
-        document.querySelector(".jpytousd").innerHTML = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
-        document.querySelector(".bgntoeur").innerHTML = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
-        document.querySelector(".czktousd").innerHTML = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
-        document.querySelector(".gbptousd").innerHTML = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
-    } catch (error) {
-        console.error("Error", error);
-    }
-}
-
-fetchCurrencyConversion();
+            try {
+                const response = await fetch(frankfurterAPIUrl);
+                const data = await response.json();
+                
+                const usdToEur = `USD to EUR: ${data.rates.EUR}`;
+                const jpyToUsd = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
+                const bgnToEur = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
+                const czkToUsd = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
+                const gbpToUsd = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
+                currencyConversionResult.innerHTML = `${usdToEur}<br>${jpyToUsd}<br>${bgnToEur}<br>${czkToUsd}<br>${gbpToUsd}`;
+            } catch (error) {
+                console.error("Error fetching currency conversion:", error);
+            }
+        });
 
 </script>
 
