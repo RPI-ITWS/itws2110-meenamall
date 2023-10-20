@@ -52,22 +52,18 @@
                 <button id="usdeurbutton">Convert USD to EUR</button>
                 <p class="usdtoeur">USD to EUR: </p>
             </div>
-            
             <div>
                 <button id="jpyusdbutton">Convert JPY to USD</button>
                 <p class="jpytousd">JPY to USD:</p>
             </div>
-            
             <div>
                 <button id="bgneurbutton">Convert BGN to EUR</button>
                 <p class="bgntoeur">BGN to EUR:</p>
             </div>
-            
             <div>
                 <button id="czkusdbutton">Convert CZK to USD</button>
                 <p class="czktousd">CZK to USD:</p>
             </div>
-            
             <div>
                 <button id="gbpusdbutton">Convert GBP to USD</button>
                 <p class="gbptousd">GBP to USD: </p>
@@ -93,9 +89,10 @@ const weatherIcon = document.querySelector(".weather-icon");  //get weather icon
 const catImage = document.getElementById("cat-image"); //gets cat image
 const newCatButton = document.getElementById("new-cat-button");
 
-const currencyConversionButton = document.getElementById("currency-conversion-button");
-const currencyConversionResult = document.getElementById("currency-conversion-result");
 
+
+const currencyConversionButtons = document.querySelectorAll(".currencyconversions button");
+const currencyConversionResults = document.querySelectorAll(".currencyconversions p");
 async function checkWeather(){
     const response = await fetch(apiurl + '&appid=${apikey}');
     var data = await response.json(); //gets weather data and shows on app
@@ -153,20 +150,35 @@ fetchRandomCat(); //calls fetchRandomCat function
 
 
 
-currencyConversionButton.addEventListener("click", async () => {
+function updateCurrencyConversion(resultIndex, value) {
+            currencyConversionResults[resultIndex].textContent = value;
+        }
+
+        async function fetchCurrencyConversionFor(targetCurrency, resultIndex) {
             try {
                 const response = await fetch(frankfurterAPIUrl);
                 const data = await response.json();
                 
-                const usdToEur = `USD to EUR: ${data.rates.EUR}`;
-                const jpyToUsd = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
-                const bgnToEur = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
-                const czkToUsd = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
-                const gbpToUsd = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
-                currencyConversionResult.innerHTML = `${usdToEur}<br>${jpyToUsd}<br>${bgnToEur}<br>${czkToUsd}<br>${gbpToUsd}`;
+                if (targetCurrency === "usdeurbutton") {
+                    updateCurrencyConversion(resultIndex, `USD to EUR: ${data.rates.EUR}`);
+                } else if (targetCurrency === "jpyusdbutton") {
+                    updateCurrencyConversion(resultIndex, `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`);
+                } else if (targetCurrency === "bgneurbutton") {
+                    updateCurrencyConversion(resultIndex, `BGN to EUR: ${data.rates.BGN.toFixed(4)}`);
+                } else if (targetCurrency === "czkusdbutton") {
+                    updateCurrencyConversion(resultIndex, `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`);
+                } else if (targetCurrency === "gbpusdbutton") {
+                    updateCurrencyConversion(resultIndex, `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`);
+                }
             } catch (error) {
-                console.error("Error fetching currency conversion:", error);
+                console.error("Error:", error);
             }
+        }
+
+        currencyConversionButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                fetchCurrencyConversionFor(button.id, index);
+            });
         });
 
 </script>
