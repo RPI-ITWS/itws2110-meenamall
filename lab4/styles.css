@@ -1,0 +1,325 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color and default font */
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header .logo img {
+  max-height: 60px;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+}
+
+header ul li {
+  margin-right: 20px;
+}
+
+header ul li:last-child {
+  margin-right: 0;
+}
+
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header ul li a:hover {
+  color: #f39c12;
+}
+
+/* Hero Section Styles */
+.hero {
+  background-image: url('hero-background.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 150px 0;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  background-color: #f39c12;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #e67e22;
+  color: whitesmoke;
+}
+
+/* About Us Section Styles */
+.about {
+  background-color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about p {
+    font-size: 18px; /* Adjust the font size as needed */
+    line-height: 1.5; /* Adjust the line height for better readability */
+    margin-bottom: 20px; /* Add spacing between paragraphs */
+    padding-left: 20px; /* Add left padding */
+    padding-right: 20px; /* Add right padding */
+}
+
+/* Programs Section Styles */
+.programs {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+}
+
+.program-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 0 0 calc(33.33% - 40px); /* Adjust card width as needed */
+}
+
+.program-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+.program-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Contact Section Styles */
+.contact {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  header nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  header ul {
+      margin-top: 20px;
+  }
+
+  header ul li {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+
+  .hero {
+      padding: 100px 0;
+  }
+
+  .hero h1 {
+      font-size: 28px;
+  }
+
+  .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+  }
+
+  .program-card {
+      margin: 10px;
+  }
+}
+
+/* Slideshow styles */
+.slideshow {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Vertically align cards at the top */
+  flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
+  gap: 20px;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.card {
+  flex: 0 0 auto; /* Ensure each card takes its original width */
+  background-color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.7; /* Reduced opacity for inactive cards */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.card.active {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Slideshow card content styles */
+.card img {
+  max-width: 10em;
+  height: auto;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 14px;
+}
+
+/* Additional styling for card slideshow */
+
+/* News Section Styles */
+.news {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.news article {
+  margin-bottom: 20px;
+}
+
+.news h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.news p {
+  margin: 10px 0;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Hover effect for links */
+a:hover {
+  color: #ff5722; /* Change color on hover (e.g., to an accent color) */
+}
+
+/* Faculty Section Styles */
+.faculty-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.faculty {
+    flex: 0 0 calc(33.3333% - 20px); /* Adjust the width as needed */
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.faculty p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.faculty img {
+    max-width: 10em;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add hover effect for faculty images */
+.faculty img:hover {
+    transform: scale(1.05); /* Enlarge image on hover */
+    transition: transform 0.3s ease-in-out;
+}
+
