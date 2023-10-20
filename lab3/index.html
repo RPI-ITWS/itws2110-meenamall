@@ -41,22 +41,37 @@
             <button id="new-cat-button">Get New Cat</button> <!--Button for generating new cat image-->
         </div>
 
+        <!-- <div class="currencyconversions">
+            <button id="currency-conversion-button">Convert Currencies</button>
+            <p id="currency-conversion-result"></p>
+        </div> -->
+
 
         <div class="currencyconversions">
-            <button id="usdeurbutton">Convert USD to EUR</button>
-            <p class="usdtoeur">USD to EUR: </p>
+            <div>
+                <button id="usdeurbutton">Convert USD to EUR</button>
+                <p class="usdtoeur">USD to EUR: </p>
+            </div>
             
-            <button id="jpyusdbutton">Convert JPY to USD</button>
-            <p class="jpytousd">JPY to USD:</p>
+            <div>
+                <button id="jpyusdbutton">Convert JPY to USD</button>
+                <p class="jpytousd">JPY to USD:</p>
+            </div>
             
-            <button id="bgneurbutton">Convert BGN to EUR</button>
-            <p class="bgntoeur">BGN to EUR:</p>
+            <div>
+                <button id="bgneurbutton">Convert BGN to EUR</button>
+                <p class="bgntoeur">BGN to EUR:</p>
+            </div>
             
-            <button id="czkusdbutton">Convert CZK to USD</button>
-            <p class="czktousd">CZK to USD:</p>
+            <div>
+                <button id="czkusdbutton">Convert CZK to USD</button>
+                <p class="czktousd">CZK to USD:</p>
+            </div>
             
-            <button id="gbpusdbutton">Convert GBP to USD</button>
-            <p class="gbptousd">GBP to USD: </p>
+            <div>
+                <button id="gbpusdbutton">Convert GBP to USD</button>
+                <p class="gbptousd">GBP to USD: </p>
+            </div>
         </div>
 
     </div>
@@ -77,6 +92,9 @@ const weatherIcon = document.querySelector(".weather-icon");  //get weather icon
 
 const catImage = document.getElementById("cat-image"); //gets cat image
 const newCatButton = document.getElementById("new-cat-button");
+
+const currencyConversionButton = document.getElementById("currency-conversion-button");
+const currencyConversionResult = document.getElementById("currency-conversion-result");
 
 async function checkWeather(){
     const response = await fetch(apiurl + '&appid=${apikey}');
@@ -134,22 +152,49 @@ newCatButton.addEventListener("click", fetchRandomCat);
 fetchRandomCat(); //calls fetchRandomCat function
 
 
+currencyConversionButton.addEventListener("click", async () => {
+    try {
+        const response = await fetch(frankfurterAPIUrl);
+        const data = await response.json();
 
+        const usdToEur = `USD to EUR: ${data.rates.EUR}`;
+        const jpyToUsd = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
+        const bgnToEur = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
+        const czkToUsd = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
+        const gbpToUsd = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
 
-async function fetchCurrencyConversion() {
-    const response = await fetch(frankfurterAPIUrl);
-    const data = await response.json();
+        // Update the corresponding paragraphs in the results area
+        document.querySelector(".usdtoeur").textContent = usdToEur;
+        document.querySelector(".jpytousd").textContent = jpyToUsd;
+        document.querySelector(".bgntoeur").textContent = bgnToEur;
+        document.querySelector(".czktousd").textContent = czkToUsd;
+        document.querySelector(".gbptousd").textContent = gbpToUsd;
 
-    document.querySelector(".usd-eur").innerHTML = `USD to EUR: ${data.rates.EUR}`;
-    document.querySelector(".jpy-usd").innerHTML = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
-    document.querySelector(".bgn-eur").innerHTML = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
-    document.querySelector(".czk-usd").innerHTML = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
-    document.querySelector(".gbp-usd").innerHTML = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
-}
-
-
+        // Make the results area visible
+        currencyConversionResults.style.display = "block";
+    } catch (error) {
+        console.error("Error fetching currency conversion:", error);
+    }
+});
 
 fetchCurrencyConversion(); //calls fetch currency conversion function
+
+async function fetchCurrencyConversion() {
+    try {
+        const response = await fetch(frankfurterAPIUrl);
+        const data = await response.json();
+
+        document.querySelector(".usdtoeur").innerHTML = `USD to EUR: ${data.rates.EUR}`;
+        document.querySelector(".jpytousd").innerHTML = `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`;
+        document.querySelector(".bgntoeur").innerHTML = `BGN to EUR: ${data.rates.BGN.toFixed(4)}`;
+        document.querySelector(".czktousd").innerHTML = `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`;
+        document.querySelector(".gbptousd").innerHTML = `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`;
+    } catch (error) {
+        console.error("Error", error);
+    }
+}
+
+fetchCurrencyConversion();
 
 </script>
 
