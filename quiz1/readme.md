@@ -12,3 +12,10 @@ https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchang
 
 
 THANK YOUUUUUUUUUUUu
+
+
+https://portal.azure.com/#view/Microsoft_Azure_DevTestLab/LabVirtualMachineMenuBlade/~/virtualMachine/id/%2Fsubscriptions%2F92cc93c6-57ae-4ede-ab97-56dd35308fb5%2Fresourcegroups%2Fstudent-dtlab%2Fproviders%2Fmicrosoft.devtestlab%2Flabs%2Fitws-student-dtlab-rpi%2Fvirtualmachines%2FmallmRPI
+
+mallmrpi.eastus.cloudapp.azure.com
+
+https://github.com/RPI-ITWS/itws2110-meenamall/tree/main/quiz1
