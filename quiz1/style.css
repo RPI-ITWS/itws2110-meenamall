@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif; 
+    box-sizing: border-box;
+}
+
+body{
+    background: #ffffff;
+
+}
+
+.upperheader{
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(550deg, #b2e7d9, #5f4cde);
+    color: white;
+    margin: 100px auto 0;
+    border-radius: 70px;
+    padding: 20px 55px;
+    text-align: center;
+}
+
+.weather-icon{
+    width: 170px;
+    margin-top: 40px;
+    border-radius: 50px;
+    
+}
+
+.weather h1{
+    font-size: 90px;
+    font-weight: 700;
+    
+}
+
+.weather h2{
+    font-size: 40px;
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 5px;
+    
+}
+
+.weatherdetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 40px;
+    
+}
+
+.column{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.column img{
+    width: 50px;
+    margin-right: 11px;
+    border-radius: 10px;
+}
+
+.humidity, .wind{
+    font-size: 30px;
+    margin-top: 3px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+.cat-container{
+    margin: 30px;
+
+}
+
+#cat-image{
+    max-width: 100%;
+    height: auto;
+    border: 10px solid #ccc;
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+
+#new-cat-button{
+    margin-top: 20px;
+    padding: 20px 35px;
+    background-color: #27bdd8;
+    color: white;
+    border:#ffffff;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.currencyconversions button {
+background-color: #4CAF50; 
+color: white; 
+padding: 10px 20px; 
+border: none; 
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+margin: 5px; 
+}
+
+.currencyconversions button:hover {
+background-color: #45a049; 
+}

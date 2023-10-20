@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css">
+    <title>Meena Mall Weather API App</title> <!--Title-->
+</head>
+<body>
+
+    
+    <div class="upperheader"> <!--Weather div class for the upper section-->
+        <div class="weather">
+            <img src="itws2110-meenamall/lab3/images/cloudy.png" class="weather-icon" alt="Cloudy weather icon">
+            <h1 class="temp">22°C</h1> <!--div class for temperature-->
+            <h2 class="state">New York</h2> <!--div class for state-->
+            <h2 class="city">Troy</h2> <!--div class for troy-->
+            <div class="weatherdetails"> <!--Class just for the details of the weather (wind and humidity)-->
+                <div class="column">
+                    <img src="images/humidity.png" alt="Humidity icon"> <!--Added the humidity logo-->
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <img src="images/wind.png" alt="Wind icon"> <!--Added the wind logo-->
+                    <div>
+                        <p class="wind">15 mph</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="cat-container"> 
+            <img id="cat-image" src="" alt="Random Cat"> <!--id for cat image-->
+            <button id="new-cat-button">Get New Cat</button> <!--Button for generating new cat image-->
+        </div>
+
+        <!-- <div class="currencyconversions">
+            <button id="currency-conversion-button">Convert Currencies</button>
+            <p id="currency-conversion-result"></p>
+        </div> -->
+
+
+        <div class="currencyconversions">
+            <div>
+                <button id="usdeurbutton">Convert USD to EUR</button>
+                <p class="usdtoeur">USD to EUR: </p>
+            </div>
+            <div>
+                <button id="jpyusdbutton">Convert JPY to USD</button>
+                <p class="jpytousd">JPY to USD:</p>
+            </div>
+            <div>
+                <button id="bgneurbutton">Convert BGN to EUR</button>
+                <p class="bgntoeur">BGN to EUR:</p>
+            </div>
+            <div>
+                <button id="czkusdbutton">Convert CZK to USD</button>
+                <p class="czktousd">CZK to USD:</p>
+            </div>
+            <div>
+                <button id="gbpusdbutton">Convert GBP to USD</button>
+                <p class="gbptousd">GBP to USD: </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+<script>
+
+const apikey = "1c668b802738a4219a8aa698d8d295cb"; //weather api key
+const apiurl = "https://api.openweathermap.org/data/2.5/weather?lat=42.7284&lon=-73.6918&appid=1c668b802738a4219a8aa698d8d295cb&units=imperial"; //weather api url with key
+
+const catapikey = "live_jjkPyzpAhxQenIgZqKXtawWrpbBhLmxJBfrq1UJRdsHvIm8Tzlt9vbFvY8FP2duK"; //cat api key
+const catapiurl = "https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng"; //cat api url + key
+
+const frankfurterAPIUrl = "https://api.frankfurter.app/latest"; //currecy url
+
+const weatherIcon = document.querySelector(".weather-icon");  //get weather icon
+
+const catImage = document.getElementById("cat-image"); //gets cat image
+const newCatButton = document.getElementById("new-cat-button");
+
+
+
+const currencyConversionButtons = document.querySelectorAll(".currencyconversions button");
+const currencyConversionResults = document.querySelectorAll(".currencyconversions p");
+async function checkWeather(){
+    const response = await fetch(apiurl + '&appid=${apikey}');
+    var data = await response.json(); //gets weather data and shows on app
+
+    console.log(data);
+
+    document.querySelector(".city").innerHTML = data.name;//this selects the certain data you want to grab
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°F";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
+    
+    if(data.weather[0].main == "Clouds"){
+        weatherIcon.src = "images/cloudy.png"; //cloud icon
+    }
+    else if(data.weather[0].main == "Clear"){
+        weatherIcon.src = "images/sunny.png"; //sunny icon
+    }
+    else if(data.weather[0].main == "Rain"){
+        weatherIcon.src = "images/rain.png"; //rain icon
+    }
+    else if(data.weather[0].main == "Drizzle"){
+        weatherIcon.src = "images/drizzle.png"; //drizzle icon
+    }
+    else if(data.weather[0].main == "Mist"){
+        weatherIcon.src = "images/mist.png"; //mist icon
+    }
+    else if(data.weather[0].main == "Snow"){
+        weatherIcon.src = "images/snow.png"; //snow icon
+    }
+   
+}
+
+checkWeather(); //calls checkWeather
+
+function fetchRandomCat(){ //function for getting cat image
+    fetch(catapiurl)
+    .then((response) => response.json()) //gets data - cat image
+    .then((data) => {
+        
+        if (data && data.length > 0) {
+            const randomCatUrl = data[0].url;
+            catImage.src = randomCatUrl;
+        } else {
+            catImage.src = ""; 
+        }
+    })
+    .catch((error) => {
+        console.error("Error fetching cat:", error); //provides error when something goes wront with cat image
+    });
+}
+
+newCatButton.addEventListener("click", fetchRandomCat); 
+
+fetchRandomCat(); //calls fetchRandomCat function
+
+
+
+function updateCurrencyConversion(resultIndex, value) {
+            currencyConversionResults[resultIndex].textContent = value;
+        }
+
+        async function fetchCurrencyConversionFor(targetCurrency, resultIndex) {
+            try {
+                const response = await fetch(frankfurterAPIUrl);
+                const data = await response.json();
+                
+                if (targetCurrency === "usdeurbutton") {
+                    updateCurrencyConversion(resultIndex, `USD to EUR: ${data.rates.EUR}`);
+                } else if (targetCurrency === "jpyusdbutton") {
+                    updateCurrencyConversion(resultIndex, `JPY to USD: ${(1 / data.rates.JPY).toFixed(4)}`);
+                } else if (targetCurrency === "bgneurbutton") {
+                    updateCurrencyConversion(resultIndex, `BGN to EUR: ${data.rates.BGN.toFixed(4)}`);
+                } else if (targetCurrency === "czkusdbutton") {
+                    updateCurrencyConversion(resultIndex, `CZK to USD: ${(1 / data.rates.CZK).toFixed(4)}`);
+                } else if (targetCurrency === "gbpusdbutton") {
+                    updateCurrencyConversion(resultIndex, `GBP to USD: ${(1 / data.rates.GBP).toFixed(4)}`);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        currencyConversionButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                fetchCurrencyConversionFor(button.id, index);
+            });
+        });
+
+</script>
+
+</body>
+</html> 
