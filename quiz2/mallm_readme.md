@@ -2,6 +2,10 @@ Meena Mall
 Quiz 2
 ReadMe
 
+
+Citation:
+Lab 6 Web Sys : https://github.com/RPI-ITWS/itws2110-WIRE/tree/main/lab6
+
 In this current quiz 2 updated lab , i realized its similarity to the previous lab we have completed in class as teams. For this current assignment, we need to update that previous LMS to a "mini-LMS" where we have to make a switch course button, recieve all of the json data and more! Within this lab, I used Lab 6 team lab as reference for all of my help. During this assignment, I had no issues with creating a new button, playing around with the CSS and even adding new buttons such as "Switch Course." I did have an issue of the archive JSON button where nothing occurs but other than that, everything went smoothly. My solution to these new updates is create a new button : 
 
 switchCourseButton.addEventListener("click", async function () {
