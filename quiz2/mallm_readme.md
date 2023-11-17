@@ -13,7 +13,6 @@ switchCourseButton.addEventListener("click", async function () {
     const newCourse = currentCourse === "MBE" ? "Websys" : "MBE";
     lecturesList.dataset.course = newCourse;
 
-    // Dynamically regenerate the left-hand side with the other JSON object
     populateNavigationItems(newCourse);
 });
 
