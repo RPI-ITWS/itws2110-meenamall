@@ -1,16 +1,23 @@
-async function getJSON() {
-    const response = await fetch("./getjson.php");
-    return await response.json();
+async function getJSON(course) {
+    const response = await fetch(`./getjson.php?course=${course}`);
+    const data = await response.json();
+    return data;
 }
 
 async function storeJSON(json) {
     await fetch("./storejson.php", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(json)
+        body: JSON.stringify(json),
     });
+}
+
+function changeCourse() {
+    const select = document.getElementById("courseSelector");
+    const selectedCourse = select.value;
+    populateNavigationItems(selectedCourse);
 }
 
 async function deleteTables() {
@@ -23,6 +30,7 @@ const contentArea = document.getElementById("content");
 const refreshButton = document.getElementById("refreshButton");
 const archiveButton = document.getElementById("archiveButton");
 const deleteButton = document.getElementById("deleteButton");
+const switchCourseButton = document.getElementById("switchCourseButton");
 
 async function populateLectureDetails(lecture) {
     contentArea.innerHTML = `
@@ -40,9 +48,9 @@ async function populateLabDetails(lab) {
     `;
 }
 
-async function populateNavigationItems() {
-    const json = await getJSON();
-    const courseData = json["Websys_course"];
+async function populateNavigationItems(course) {
+    const json = await getJSON(course);
+    const courseData = json[`${course}_course`];
 
     // Clear the current navigation items
     lecturesList.innerHTML = "";
@@ -58,6 +66,7 @@ async function populateNavigationItems() {
         lecturesList.appendChild(lectureItem);
     });
 
+
     // Populate Labs
     courseData.Labs.forEach((lab, index) => {
         const labItem = document.createElement("li");
@@ -69,19 +78,34 @@ async function populateNavigationItems() {
     });
 }
 
-// Initially populate navigation items
-populateNavigationItems();
+// Initially populate navigation items with the MBE course
+populateNavigationItems("MBE");
+
+// Add event listener to the switch course button
+switchCourseButton.addEventListener("click", async function () {
+    const currentCourse = lecturesList.dataset.course;
+    const newCourse = currentCourse === "MBE" ? "Websys" : "MBE";
+    lecturesList.dataset.course = newCourse;
+
+    // Dynamically regenerate the left-hand side with the other JSON object
+    populateNavigationItems(newCourse);
+});
+
 
 refreshButton.addEventListener("click", function () {
     // Refresh the navigation items by re-reading the JSON file
-    populateNavigationItems();
+    const currentCourse = lecturesList.dataset.course;
+    populateNavigationItems(currentCourse);
 });
 
 archiveButton.addEventListener("click", async function () {
-    const json = await getJSON();
+    const json = await getJSON("MBE");
     storeJSON(json);
 });
 
 deleteButton.addEventListener("click", function () {
     deleteTables();
 });
+
+// Reset content to default on page load
+resetToDefaultContent();

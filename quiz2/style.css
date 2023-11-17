@@ -37,8 +37,8 @@ body {
     margin: 30px;
     padding: 20px;
     background-color: #cad3ea;
-    border-left: 5px solid #007bff;
-    border-right: 5px solid #007bff;
+    border-left: 5px solid #ee00ff;
+    border-right: 5px solid #ee00ff;
     color: #333;
     font-size: 1rem;
     
@@ -104,7 +104,7 @@ body {
  
  .transparent-button:hover {
     text-decoration: underline;
-    color: #ff5733;
+    color: #33ff55;
  }
  
  h2, h3 {

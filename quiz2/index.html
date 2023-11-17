@@ -22,9 +22,14 @@
             <button id="refreshButton">Refresh</button>
             <button id="archiveButton">Archive JSON</button>
             <button id="deleteButton">Delete Tables</button>
+            <button id="switchCourseButton">Switch Course</button>
         </div>
-        <div id="content">
-        </div>
+        <div id="content"></div>
+
+        <select id="courseSelector" onchange="changeCourse()">
+            <option value="Websys_course">Web Systems</option>
+            <option value="MBE_course">MBE</option>
+        </select>
     </main>
    
     <footer>
