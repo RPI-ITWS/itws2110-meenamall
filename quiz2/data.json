@@ -1,0 +1,94 @@
+{
+    "MBE_course": {
+        "Lectures": [
+            {
+                "title": "MBE Lecture 1",
+                "description": " Modern Binary Exploitation",
+                "link": "https://docs.google.com/presentation/d/1XPqoocF5CX0g2PPVjINbblczLPBoVMQJCTbnVTOrbR4/edit#slide=id.g4474cfbc15_0_246"
+            },
+            {
+                "title": "MBE Lecture 2",
+                "description": "MBE - RE",
+                "link": "https://docs.google.com/presentation/d/1njsyW0uWA4TKp1B-8vtEOFuNxsBuhxmY4EEt_x5pi7o/edit#slide=id.g4474cfbc15_0_246"
+            },
+            {
+                "title": "MBE Lecture 3",
+                "description": "Memory Corruption                ",
+                "link": "https://docs.google.com/presentation/d/1avKXYm4CoxWyK93gxyJVcawbox8JUyIGs0wNNwHuhYg/edit"
+            },
+            {
+                "title": "MBE Lecture 4",
+                "description": "Shellcoding",
+                "link": "https://docs.google.com/presentation/d/1CbZQjUoGFJeID5Tc5j2Ez0IkhFf3Lanhw3WTiiNdGWI/edit#slide=id.gc8692888a_1_0"
+            },
+            {
+                "title": "MBE Lecture 5",
+                "description": "Stack Cookies",
+                "link": "https://docs.google.com/presentation/d/1mFhnVrPVt8TiFcEFqCIXUGePWQis5k8ossX-A0uuz6E/edit#slide=id.gc8692888a_1_0"
+            },
+            {
+                "title": "MBE Lecture 6",
+                "description": "Data Execution Prevention & Return Oriented Programming",
+                "link": "https://docs.google.com/presentation/d/1GkPEr_IYfMW4ISOLeVF0IGGyM5G8NQKqlwaCLKSAPGU/edit#slide=id.gc8692888a_1_0"
+            },
+            {
+                "title": "MBE Lecture 7",
+                "description": "ASLR",
+                "link": "https://docs.google.com/presentation/d/1GkPEr_IYfMW4ISOLeVF0IGGyM5G8NQKqlwaCLKSAPGU/edit#slide=id.gc8692888a_1_0"
+            },
+            {
+                "title": "MBE Lecture 8",
+                "description": "The “blue team” side of our exploit toolbox",
+                "link": "https://docs.google.com/presentation/d/1NNuxVy220xdbuaa7e7njF-GC4sRB5Z8QM6ZMKyzXZcg/edit#slide=id.p"
+            },
+            {
+                "title": "MBE Lecture 9",
+                "description": "Heap Exploitation                ",
+                "link": "https://docs.google.com/presentation/d/1m_Oc1GuOp20cttQ3l2r-jNTgU9xh9rzjZJLOS19ziHc/edit#slide=id.gc8692888a_1_0"
+            },
+            {
+                "title": "MBE Lecture 10",
+                "description": "More Types of Bugs                ",
+                "link": "https://docs.google.com/presentation/d/1EXdzSb38NDFuq1YP3EPs2IThOu1LaPkAl_0sbEyB3S8/edit#slide=id.gc8692888a_1_0"
+            },
+            {
+                "title": "MBE Lecture 11",
+                "description": "Race Conditions",
+                "link": "https://docs.google.com/presentation/d/1WBlbRUvJLU7MTQU9udw0IBzq20c2Dh1A-9HLkwWREzI/edit#slide=id.gc8692888a_1_0"
+            }
+           
+        ],
+        "Labs": [
+            {
+                "title": "Lab 1",
+                "description": "Group portfolio website including landing page with overall team information and individual resume pages, progress documented in README",
+                "link": "https://docs.google.com/document/d/1TVsVEJKSUBs4KEwSUe6QFsp-t_a8h4s1toh9jjKjHfw/edit"
+            },
+            {
+                "title": "Lab 2",
+                "description": "Group lab which is a US constitution analysis of articles I-VII and amendments 1-10. Includes unique touches through CSS styling",
+                "link": "https://docs.google.com/document/d/1A3B7FTbxIw71oOCAiBsfEHdHcXeef1gjrXsG-VI6e-U/edit"
+            },
+            {
+                "title": "Lab 3",
+                "description": "An individual lab project hosted on a personal Azure VM that utilizes the OpenWeatherMap API to retrieve weather information for Troy, NY, and another free API of the student's choice to gather additional data. The resulting web app combines the weather data with information from the second API",
+                "link": "https://docs.google.com/document/d/1-D4VYKxBo2OnHR4Pyg9kPkoQajd3vsBgHUzRvdlo6Xw/edit#heading=h.qduqrdgqibzv"
+            },
+            {
+                "title": "Lab 4",
+                "description": "A web development project that involves hosting a website created in class on a personal virtual machine (VM) and expanding its functionality solely through AI-generated code and content. Students are required to utilize AI, such as ChatGPT, to generate code, images, and text to replicate all the functionalities of the complete ITWS website, except for curriculum documents",
+                "link": "https://docs.google.com/document/d/1SoU_8JJEjfdOLIclXF4TeXEFFYbXKTH9IWUG2gHSazY/edit"
+            },
+            {
+                "title": "Lab 5",
+                "description": "Focuses on optimizing the web-based word game Free Bee, similar to the New York Times' Spelling Bee where students must individually implement a minimum of 7 optimizations to improve performance and user experience, while preserving the core gameplay",
+                "link": "https://docs.google.com/document/d/1u3gqViUz15LTJ-6F0aucM_EP9gzus1L09BgqOMy8nvA/edit"
+            },
+            {
+                "title": "Lab 6",
+                "description": "A group project aimed at reimagining a Learning Management System (LMS). It involves creating a MySQL database, enhancing tables for courses and students, implementing various database queries, integrating a JSON document for course content, designing a user interface, and developing a PHP-based back-end for archiving course materials in the database",
+                "link": "https://docs.google.com/document/d/1oC6BOAmPbR0p6j_DWXWK_FInNgT8JaiUAwMWEnQf4Vw/edit"
+            }
+        ]
+    }
+}
