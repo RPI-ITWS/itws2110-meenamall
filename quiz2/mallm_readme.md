@@ -34,4 +34,6 @@ Also added the new MBE data as well!! : {
             },
         etc.
 
-This solved the question of implementing the new MBE Data and allowing the user of switching the courses from Web Sys to MBE, which is shown on the right of my page when its loaded completely.  I 
+This solved the question of implementing the new MBE Data and allowing the user of switching the courses from Web Sys to MBE, which is shown on the right of my page when its loaded completely.  
+
+I also implemented more code into my CSS file and played around with the styling by focusing on two things - the color and styling. I changed all of the color to make it cute and pretty and also added new styling to the font as well. By doing this made the web page look clenarer and organized.

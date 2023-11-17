@@ -11,7 +11,7 @@ body {
  }
  
  header {
-    background-color: #5689ff; /* Blue background color */
+    background-color: rgb(255, 86, 185); /* Blue background color */
     color: #fff; /* White text color */
     text-align: center; /* Center the text horizontally */
     padding: 20px; /* Add padding for spacing */
@@ -24,7 +24,7 @@ body {
  }
     
  #navigation {
-    background-color: #5689ff;
+    background-color:rgb(255, 86, 185);
     color: #CCB7AE;
     padding: 10px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
@@ -53,7 +53,7 @@ body {
  
  #navigation li:hover {
     background-color: #ffffff; /* Background color on hover (white) */
-    color: #5689ff; /* Text color on hover (blue) */
+    color: rgb(255, 86, 185); /* Text color on hover (blue) */
     padding: 5px; /* Add padding for the hover effect */
     border-radius: 5px; /* Add rounded corners to the hover effect */
  }
@@ -97,7 +97,7 @@ body {
     background: transparent;
     border: none;
     cursor: pointer;
-    color: #0077b6;
+    color: rgb(255, 86, 185);
     font-weight: bold;
     transition: color 0.3s;
  }
@@ -114,7 +114,7 @@ body {
  
  /* Style for the footer */
  footer {
-    background-color: #5689ff;
+    background-color: rgb(255, 86, 185);
     color: #CCB7AE;
     text-align: center;
     padding: 10px;
@@ -128,7 +128,7 @@ body {
  
  /* Style for the button */
  #navigation > button {
-    background-color: #ff5733;
+    background-color: #3333ff;
     color: white;
     border: none;
     padding: 10px 20px;
